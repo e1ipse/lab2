@@ -1,0 +1,41 @@
+include <stdio.h>
+
+long int factorial(long int n);
+int step(int a,int n);
+double proizvedenie(double n);
+
+
+int main(void)
+{
+double y=0.0;
+int m;
+printf("введите m\n");
+scanf("%d", &m);
+for(int i=1; i<=m; i+=1){
+y+=step(-1, i)*step(2,i)*proizvedenie(i)/factorial(i);
+}
+printf("%f",y);
+return 0;
+}
+
+
+long int factorial(long int n){
+if (n>1)
+return n*factorial(n-1);
+else
+return 1;
+}
+
+int step(int a,int n){
+if(n>0)
+return a*step(a,n-1);
+else
+return 1;
+}
+
+double proizvedenie(double n){
+if(n>=1)
+return proizvedenie(n-1)*(1.0/(n+1.0));
+else
+return 1.0;
+}
